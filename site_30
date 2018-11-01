@@ -1,0 +1,5 @@
+#! /bin/bash
+
+curl="https://app.bitpool.com/#/login?pane=organization"
+url=$curl grep "
+
