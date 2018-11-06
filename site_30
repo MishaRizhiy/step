@@ -1,5 +1,21 @@
 #! /bin/bash
 
-curl="https://app.bitpool.com/#/login?pane=organization"
-url=$curl grep "
+url="https://app.bitpool.com/#/login?pane=organization"
+curl $url > site
+var=`grep "bpoAppVersion" site | grep -oE "[0-9]+"`
+hh=`date "+%H"`
+mm=`date "+%M"`
+sum=$(($hh+$mm))
+echo -e "$var - site"
+echo -e "$hh - godyny"
+echo -e "$mm - hvylyny"
+echo -e "$sum - suma hh i mm"
+if (("$sum" > "$var" )); then
+echo -e "$sum > znachennia site: $var"
+elif (("$sum" < "$var" )); then
+echo -e "$var > sum h+m: $sum"
+else 
+echo -e "Znachennia rivni"
+fi
+
 
